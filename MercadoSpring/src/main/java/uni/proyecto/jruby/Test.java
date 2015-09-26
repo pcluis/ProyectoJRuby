@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.jruby.embed.PathType;
 import org.jruby.embed.ScriptingContainer;
+import org.jruby.runtime.builtin.IRubyObject;
 
 public class Test {
 	
@@ -23,6 +24,11 @@ public class Test {
 		container.runScriptlet(PathType.ABSOLUTE, rubyclass);
 		
 		Object test = container.get("Greeter");
+
+		container.callMethod(test, "say_hi", "gdfg");
+		IRubyObject a = (IRubyObject) container.get("Greeter");
+		System.out.println(a.callMethod(a.getRuntime().getCurrentContext(), "say_hi"));
+		
 		System.out.println(test.toString());
 		
 	}
