@@ -139,6 +139,7 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+		
 		<!-- JRuby -->
 		<dependency>
 			<groupId>org.jruby</groupId>
