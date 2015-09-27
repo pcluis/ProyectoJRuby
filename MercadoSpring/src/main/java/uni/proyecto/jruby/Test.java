@@ -12,16 +12,17 @@ public class Test {
 	public static void main(String[] args) {
 		
 		String jrubyhome = "C:\\jruby-9.0.1.0";
-		String rubyclass = "C:\\jruby-9.0.1.0\\rubyclasses\\test1.rb";
+		String rubyclass = "\\src\\main\\resources\\ruby\\database.rb";
 		
 		ScriptingContainer container = new ScriptingContainer();
 		List<String> paths = new ArrayList<String>();
 		
 		paths.add(jrubyhome);
 		
-		container.setLoadPaths(paths);
-		
-		container.runScriptlet(PathType.ABSOLUTE, rubyclass);
+		//HOME DIRECTORY DEBE APUNTAR A LA CARPETA DEL JRUBY
+		container.setHomeDirectory(jrubyhome);
+		//EL PATHTYPE RELATIVE HACE REFERENCIA A LA CARPETA DE NUESTO PROYECTO
+		container.runScriptlet(PathType.RELATIVE, rubyclass);
 		
 		Object test = container.get("Greeter");
 
