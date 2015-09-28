@@ -1,4 +1,4 @@
-1.-Instalar jruby.exe
+1.-Descargar jruby desde http://jruby.org/
 
 2.-jruby -S gem install rails
 
