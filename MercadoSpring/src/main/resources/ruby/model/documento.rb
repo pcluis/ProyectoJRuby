@@ -1,3 +1,14 @@
-class Show < ActiveRecord::Base
-  has_many :episodes, inverse_of: :show
+require 'rubygems'
+require 'activerecord-jdbc-adapter'
+
+class documentoDAO
+
+  class Documento < ActiveRecord::Base
+    belongs_to :socio
+  end
+  
+  def self.create()
+  	Documento.create!(tipo: 'DNI', numero: '12345678')
+  end
+
 end
