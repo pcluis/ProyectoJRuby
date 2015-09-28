@@ -46,7 +46,7 @@ public class Test {
 		//AMBAS MANERAS PARA INVOCAR LAS CLASES RUBY SON CORRECTAS
 		//USANDO EL CONTAINER DIRECTAMENTE O USANDO LA INTERFAZ IRUBYOBJECT
 		
-		System.out.println("Finalizando demo");
+		System.out.println("====Finalizando demo====");
 		
 	}
 	
