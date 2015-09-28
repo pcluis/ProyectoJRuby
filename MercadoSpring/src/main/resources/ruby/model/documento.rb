@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'activerecord-jdbc-adapter'
 
-class documentoDAO
+class DocumentoDAO
 
   class Documento < ActiveRecord::Base
     belongs_to :socio
