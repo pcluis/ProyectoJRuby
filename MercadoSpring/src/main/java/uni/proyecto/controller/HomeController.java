@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import uni.proyecto.dto.UsuarioDTO;
+
 /**
  * Handles requests for the application home page.
  */
@@ -32,8 +34,10 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
+		UsuarioDTO usuario = new UsuarioDTO();
+		model.addAttribute("usuario", usuario);
 		
-		return "home";
+		return "login";
 	}
 	
 }
