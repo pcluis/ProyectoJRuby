@@ -1,5 +1,5 @@
-Instalar jruby.exe
+1.-Instalar jruby.exe
 
-jruby -S gem install rails
+2.-jruby -S gem install rails
 
-jruby -S gem install activerecord-jdbcderby-adapter
+3.-jruby -S gem install activerecord-jdbcderby-adapter
