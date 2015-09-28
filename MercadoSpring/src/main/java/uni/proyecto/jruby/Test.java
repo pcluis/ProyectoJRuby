@@ -13,6 +13,8 @@ public class Test {
 		
 		String jrubyhome = "C:\\jruby-9.0.1.0";
 		String rubyclass = "\\src\\main\\resources\\ruby\\database.rb";
+		String sociorb = "\\src\\main\\resources\\ruby\\model\\socio.rb";
+		String documentorb = "\\src\\main\\resources\\ruby\\model\\documento.rb";
 		
 		ScriptingContainer container = new ScriptingContainer();
 		List<String> paths = new ArrayList<String>();
@@ -24,13 +26,25 @@ public class Test {
 		//EL PATHTYPE RELATIVE HACE REFERENCIA A LA CARPETA DE NUESTO PROYECTO
 		container.runScriptlet(PathType.RELATIVE, rubyclass);
 		
+		//SE CARGA EL SOCIO.RB
+		container.runScriptlet(PathType.RELATIVE, sociorb);
+		
+		container.runScriptlet(PathType.RELATIVE, documentorb);
+		
+		//RECORDAR QUE DENTRO DEL GET SE PONE EL NOMBRE DE LA CLASE
 		Object test = container.get("Greeter");
 
 		container.callMethod(test, "say_hi", "gdfg");
 		IRubyObject a = (IRubyObject) container.get("Greeter");
 		System.out.println(a.callMethod(a.getRuntime().getCurrentContext(), "say_hi"));
 		
-		System.out.println(test.toString());
+		//INVOCANDO CREAR SOCIO DE SOCIO.RB
+		IRubyObject b = (IRubyObject) container.get("SocioDAO");
+		b.callMethod(b.getRuntime().getCurrentContext(), "create");
+		
+		
+		
+		System.out.println("Finalizando demo");
 		
 	}
 	
