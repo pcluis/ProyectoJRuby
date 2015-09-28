@@ -33,16 +33,18 @@ public class Test {
 		
 		//RECORDAR QUE DENTRO DEL GET SE PONE EL NOMBRE DE LA CLASE
 		Object test = container.get("Greeter");
-
 		container.callMethod(test, "say_hi", "gdfg");
+		
+		//IRUBYOBJECT REPRESENTA UN OBJETO DE RUBY
 		IRubyObject a = (IRubyObject) container.get("Greeter");
-		System.out.println(a.callMethod(a.getRuntime().getCurrentContext(), "say_hi"));
+		a.callMethod(a.getRuntime().getCurrentContext(), "say_hi");
 		
 		//INVOCANDO CREAR SOCIO DE SOCIO.RB
 		IRubyObject b = (IRubyObject) container.get("SocioDAO");
 		b.callMethod(b.getRuntime().getCurrentContext(), "create");
 		
-		
+		//AMBAS MANERAS PARA INVOCAR LAS CLASES RUBY SON CORRECTAS
+		//USANDO EL CONTAINER DIRECTAMENTE O USANDO LA INTERFAZ IRUBYOBJECT
 		
 		System.out.println("Finalizando demo");
 		

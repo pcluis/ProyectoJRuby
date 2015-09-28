@@ -96,5 +96,3 @@ class Greeter < ActiveRecord::Base
   end
 
 end
-
-Greeter.say_hi
