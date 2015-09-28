@@ -17,6 +17,7 @@ public class LoginController {
 	
 	@RequestMapping(method = RequestMethod.POST, value = "valida.htm")
 	public ModelAndView login(){
+		System.out.println("entro a login");
 		UsuarioDTO usuario = new UsuarioDTO();
 		ModelAndView model = new ModelAndView("login", "usuario", usuario);
 		
