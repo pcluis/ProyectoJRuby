@@ -15,7 +15,7 @@
       	
         <p class="login-box-msg">Ingrese sus datos para iniciar sesión</p>
         
-        <f:form commandName="usuario" action="/usuario/valida.htm" 
+        <f:form commandName="usuario" action="usuario/valida.htm" 
         		autocomplete="false" method="post">
         	<f:label path="usuario">Usuario:</f:label>
         	<f:input path="usuario"/>
