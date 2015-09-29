@@ -6,7 +6,7 @@ ActiveRecord::Base.establish_connection(
   :host => "localhost",
   :database => 'mercadospring',
   :username => 'root',
-  :password => '123456'
+  :password => 'mysql'
 )
 
 ActiveRecord::Schema.define do
