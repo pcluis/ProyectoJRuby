@@ -1,5 +1,7 @@
 1.-Descargar jruby desde http://jruby.org/
 
-2.-jruby -S gem install rails
+2.-Abrir la consola cmd.
 
-3.-jruby -S gem install activerecord-jdbcderby-adapter
+3.-jruby -S gem install rails
+
+4.-jruby -S gem install activerecord-jdbcderby-adapter

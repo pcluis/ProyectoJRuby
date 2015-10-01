@@ -15,7 +15,7 @@ import uni.proyecto.dto.UsuarioDTO;
 @RequestMapping("/usuario")
 public class LoginController {
 	
-	@RequestMapping(method = RequestMethod.POST, value = "valida.htm")
+	@RequestMapping(method = RequestMethod.GET, value = "valida.htm")
 	public ModelAndView login(){
 		System.out.println("entro a login");
 		UsuarioDTO usuario = new UsuarioDTO();
@@ -24,7 +24,7 @@ public class LoginController {
 		return model;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "result")
+	@RequestMapping(method = RequestMethod.GET, value = "result")
 	public String resultado(@Valid PersonaDTO persona, BindingResult bindingresult){
 		System.out.println("entrando en result...");
 		if(bindingresult.hasErrors()){
