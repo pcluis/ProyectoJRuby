@@ -1,16 +1,53 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring3-3.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Contacts</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" th:href="@{resources/bootstrap/css/bootstrap.min.css}"></link>
+<title>Contacts</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{resources/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	href="resources/adminLTE/css/AdminLTE.css" />
 </head>
-<body>
- 
- <button type="button" class="">
- 	probando 
- </button>
-	
+<body class="login-page">
+
+	<div class="login-box">
+		<div class="login-logo">
+			<a href="#"><b>Administrador</b></a>
+		</div>
+		<!-- /.login-logo -->
+		<div class="login-box-body">
+
+			<p class="login-box-msg">Ingrese sus datos para iniciar sesión</p>
+
+			<form action="#" th:action="@{/valida.html}" th:object="${usuarioDTO}" 
+					method="post" autocomplete="off" >
+					
+				<p th:if="${#fields.hasErrors('global')}" th:errors="*{global}">Incorrect date</p>
+					
+				<div th:class="${#fields.hasErrors('usuario')}? 'form-group has-feedback has-error' : 'form-group has-feedback'">
+					<input type="text" th:field="*{usuario}" class="form-control" />
+					<span th:if="${#fields.hasErrors('usuario')}" th:errors="*{usuario}" th:errorclass="has-error">USUARIO ERROR</span>
+					<span class="glyphicon glyphicon-user form-control-feedback"></span>
+				</div>
+				<div th:class="${#fields.hasErrors('clave')}? 'form-group has-feedback has-error' : 'form-group has-feedback'">
+					<input type="text" th:field="*{clave}" class="form-control" />
+					<span th:if="${#fields.hasErrors('clave')}" th:errors="*{clave}">CLAVE ERROR</span>
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+				</div>
+				<br />
+				<input type="submit" value="ENVIAR" class="btn btn-primary btn-block btn-flat" />
+			</form>
+
+
+			<a href="a_cambiarpassword">Olvidé mi contraseña</a><br />
+
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		th:src="@{resources/jquery/jquery-1.11.3.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{resources/bootstrap/js/bootstrap.js}"></script>
 </body>
 </html>

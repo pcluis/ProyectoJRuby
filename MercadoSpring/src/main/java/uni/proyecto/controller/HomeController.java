@@ -35,7 +35,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		UsuarioDTO usuario = new UsuarioDTO();
-		model.addAttribute("usuario", usuario);
+		model.addAttribute("usuarioDTO", usuario);
 		
 		return "login.html";
 	}

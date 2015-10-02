@@ -1,9 +1,19 @@
 package uni.proyecto.dto;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class UsuarioDTO {
 
 	private Integer id;
-	private String usuario, clave, nombrecompleto, correo, token;
+	@NotEmpty(message = "El usuario no puede estar vacio")
+	private String usuario;
+	
+	@NotEmpty(message = "La clave no puede estar vacia")
+	private String clave;
+	
+	private String nombrecompleto;
+	private String correo;
+	private String token;
 	private byte[] foto;
 	public Integer getId() {
 		return id;
