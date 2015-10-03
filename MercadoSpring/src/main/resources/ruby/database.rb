@@ -1,12 +1,12 @@
 require 'rubygems'
-require 'activerecord-jdbc-adapter'
+require 'activerecord-jdbcpostgresql-adapter'
 
 ActiveRecord::Base.establish_connection(
-  :adapter => 'mysql',
+  :adapter => 'postgresql',
   :host => "localhost",
   :database => 'mercadospring',
-  :username => 'root',
-  :password => 'mysql'
+  :username => 'postgres',
+  :password => '123456'
 )
 
 ActiveRecord::Schema.define do

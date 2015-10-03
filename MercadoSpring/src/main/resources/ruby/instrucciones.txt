@@ -4,4 +4,6 @@
 
 3.-jruby -S gem install rails
 
-4.-jruby -S gem install activerecord-jdbcderby-adapter
+4.-jruby -S gem install activerecord-jdbcderby-adapter para usar mysql
+
+5.-jruby -S gem install activerecord-jdbcpostgresql-adapter para usar postgresql

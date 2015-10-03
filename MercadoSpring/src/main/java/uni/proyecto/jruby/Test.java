@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.jruby.embed.PathType;
 import org.jruby.embed.ScriptingContainer;
-import org.jruby.runtime.builtin.IRubyObject;
 
 public class Test {
 	
