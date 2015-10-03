@@ -32,16 +32,12 @@ public class Test {
 		container.runScriptlet(PathType.RELATIVE, documentorb);
 		
 		//RECORDAR QUE DENTRO DEL GET SE PONE EL NOMBRE DE LA CLASE
-		Object test = container.get("Greeter");
-		container.callMethod(test, "say_hi", "gdfg");
+		Object test = container.get("Socio");
+		container.callMethod(test, "nuevoSocio", "probando cositas");
 		
-		//IRUBYOBJECT REPRESENTA UN OBJETO DE RUBY
-		IRubyObject a = (IRubyObject) container.get("Greeter");
-		a.callMethod(a.getRuntime().getCurrentContext(), "say_hi");
+		Object aaa =  container.callMethod(test, "leerSocio", "1");
+		System.out.println(aaa);
 		
-		//INVOCANDO CREAR SOCIO DE SOCIO.RB
-		IRubyObject b = (IRubyObject) container.get("SocioDAO");
-		b.callMethod(b.getRuntime().getCurrentContext(), "create");
 		
 		//AMBAS MANERAS PARA INVOCAR LAS CLASES RUBY SON CORRECTAS
 		//USANDO EL CONTAINER DIRECTAMENTE O USANDO LA INTERFAZ IRUBYOBJECT
