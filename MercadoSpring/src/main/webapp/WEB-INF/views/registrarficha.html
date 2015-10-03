@@ -7,9 +7,11 @@
 <link rel="stylesheet" type="text/css"
 	th:href="@{resources/bootstrap/css/bootstrap.min.css}" />
 <link rel="stylesheet" type="text/css"
-	href="resources/adminLTE/css/AdminLTE.css" />
+	th:href="@{resources/adminLTE/css/AdminLTE.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{resources/jvectormap/jquery-jvectormap-1.2.2.css}" />
 </head>
-<body>
+<body class="skin-blue">
 
 	<div class="container-fluid">
 		<div class="row">
@@ -18,7 +20,57 @@
 			  	<div class="panel-body">
 			  	
 			    	<div class="col-xs-8">
-			    		
+			    		<form  th:object="${socioDTO}" th:action="@{/registrarficha.html}"
+			    				autocomplete="off" method="post" >
+			    			<div class="form-group">
+			    				<label>Seleccione tipo documento</label>
+			    				<select th:field="*{tipodocumento}" class="form-control">
+			    					<option th:each="tipo : ${tipoDocumento.entrySet()}"
+			    							th:value="${tipo.key}" th:text="${tipo.value}" />
+			    				</select>
+			    			</div>
+			    			<div class="form-group">
+			    				<div th:class="${#fields.hasErrors('numerodocumento')}? 'form-group has-feedback has-error' : 'form-group has-feedback'">
+				    				<label>Número de documento</label>
+				    				<input type="text" th:field="*{numerodocumento}" class="form-control" />
+				    				<span th:if="${#fields.hasErrors('numerodocumento')}" th:errors="*{numerodocumento}">SOCIO ERROR</span>
+			    				</div>
+			    			</div>
+			    			<div class="form-group">
+			    				<label>Nombre del socio</label>
+			    				<input type="text" th:field="*{nombres}" class="form-control" />
+			    			</div>
+			    			<div class="form-group">
+			    				<label>Apellido paterno del socio</label>
+			    				<input type="text" th:field="*{paterno}" class="form-control" />
+			    			</div>
+			    			<div class="form-group">
+			    				<label>Apellido materno del socio</label>
+			    				<input type="text" th:field="*{materno}" class="form-control" />
+			    			</div>
+			    			<div class="form-group">
+			    				<label>Fecha de nacimiento del socio</label>
+			    				<input type="date" />
+			    			</div>
+			    			<div class="form-group">
+			    				<label>Género del socio</label>
+			    				<ul>
+			    					<li th:each="g : ${genero}">
+			    						<input type="radio" th:field="*{sexo}" th:value="${g}" />
+			    						<label></label>
+			    					</li>
+			    				</ul>
+			    			</div>
+			    			<div class="form-group">
+			    				<label>Estado civil del socio</label>
+			    				<select th:field="*{estadocivil}" class="form-control">
+			    					<option th:each="estado : ${estadoCivil.entrySet()}"
+			    							th:value="${estado.key}" th:text="${estado.value}"/>
+			    				</select>
+			    			</div>
+			    			
+			    			<input type="submit" value="REGISTRAR SOCIO" class="btn btn-block btn-success" />
+			    		</form>
 			    	</div>
 			    </div>
 			</div>
@@ -30,5 +82,9 @@
 		th:src="@{resources/jquery/jquery-1.11.3.min.js}"></script>
 	<script type="text/javascript"
 		th:src="@{resources/bootstrap/js/bootstrap.js}"></script>
+	<script type="text/javascript"
+		th:src="@{resources/jvectormap/jquery-jvectormap-1.2.2.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{resources/jvectormap/jvectormap.mercadomapa.js}"></script>
 </body>
 </html>
