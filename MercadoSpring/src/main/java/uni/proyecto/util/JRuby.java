@@ -3,11 +3,11 @@ package uni.proyecto.util;
 import org.jruby.embed.PathType;
 import org.jruby.embed.ScriptingContainer;
 
-public class JRuby {
-
-	public final String JRUBYHOME = "C:\\jruby-9.0.1.0";
-	public final String JRUBYINITDB = "\\src\\main\\resources\\ruby\\database.rb";
-	public final String SOCIORB = "\\src\\main\\resources\\ruby\\model\\socio.rb";
+public class JRuby{
+	
+	public String JRUBYHOME = "C:\\jruby-9.0.1.0";
+	public String JRUBYINITDB = "\\src\\main\\resources\\ruby\\database.rb";
+	public String SOCIORB = "\\WEB-INF\\classes\\ruby\\model\\socio.rb";
 	
 	private ScriptingContainer container = new ScriptingContainer();
 

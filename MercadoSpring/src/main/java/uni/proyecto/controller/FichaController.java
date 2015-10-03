@@ -3,29 +3,41 @@ package uni.proyecto.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.ModelAndView;
 
 import uni.proyecto.dto.SocioDTO;
+import uni.proyecto.model.SocioDAO;
 import uni.proyecto.util.ListasEstaticas.ESTADOCIVIL;
 import uni.proyecto.util.ListasEstaticas.GENERO;
 import uni.proyecto.util.ListasEstaticas.TIPODOCUMENTO;
 
 @Controller
-public class FichaController {
+public class FichaController implements ServletContextAware {
+	
+	@Autowired
+	private SocioDAO socioDAO;
+	
+	private ServletContext servletcontext;
 
 	@RequestMapping(value = "registrarficha.html", method = RequestMethod.POST)
 	public ModelAndView registrarSocio(@Valid SocioDTO socioDTO, BindingResult bindingresult){
 		
 		if(bindingresult.hasErrors()){
+			System.out.println(servletcontext.getRealPath(""));
 			return new ModelAndView("registrarficha.html", "socioDTO", socioDTO);
 		}
+		
+		socioDAO.createSocio(socioDTO, servletcontext.getRealPath(""));
 		
 		return new ModelAndView();
 		
@@ -62,6 +74,11 @@ public class FichaController {
 		}
 		
 		return mapaEstadoCivil;
+	}
+
+	@Override
+	public void setServletContext(ServletContext servletcontext) {
+		this.servletcontext = servletcontext;
 	}
 	
 }

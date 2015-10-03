@@ -32,11 +32,7 @@ public class Test {
 		container.runScriptlet(PathType.RELATIVE, documentorb);
 		
 		//RECORDAR QUE DENTRO DEL GET SE PONE EL NOMBRE DE LA CLASE
-		Object test = container.get("Socio");
-		container.callMethod(test, "nuevoSocio", "probando cositas");
 		
-		Object aaa =  container.callMethod(test, "leerSocio", "1");
-		System.out.println(aaa);
 		
 		
 		//AMBAS MANERAS PARA INVOCAR LAS CLASES RUBY SON CORRECTAS

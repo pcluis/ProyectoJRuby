@@ -17,6 +17,8 @@ ActiveRecord::Schema.define do
     t.date     :fechanacimiento
     t.integer  :sexo
     t.integer  :estadocivil
+    t.integer  :tipodocumento
+    t.string   :numerodocumento
     t.binary   :foto
     t.binary   :huella
     t.binary   :firma
