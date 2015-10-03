@@ -1,19 +1,24 @@
 package uni.proyecto.dto;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class SocioDTO {
 	
-	private Integer id, sexo, estadocivil;
+	private Integer id, sexo, estadocivil, tipodocumento;
+	
+	@NotEmpty()
 	private String nombres, paterno, materno;
+	
+	@NotEmpty
+	@Length(min = 8, max = 11)
+	private String numerodocumento;
+	
 	private Date fechanacimiento, created_at, updated_at;
 	private byte[] foto, huella, firma;
 	
-	private List<DocumentoDTO> lstDocumentos = new ArrayList<DocumentoDTO>();
-	private List<DomicilioDTO> lstDomicilios = new ArrayList<DomicilioDTO>();
-	private List<FichaDTO> lstFichas = new ArrayList<FichaDTO>();
 	
 	public Integer getId() {
 		return id;
@@ -87,23 +92,17 @@ public class SocioDTO {
 	public void setFirma(byte[] firma) {
 		this.firma = firma;
 	}
-	public List<DocumentoDTO> getLstDocumentos() {
-		return lstDocumentos;
+	public Integer getTipodocumento() {
+		return tipodocumento;
 	}
-	public void setLstDocumentos(List<DocumentoDTO> lstDocumentos) {
-		this.lstDocumentos = lstDocumentos;
+	public void setTipodocumento(Integer tipodocumento) {
+		this.tipodocumento = tipodocumento;
 	}
-	public List<DomicilioDTO> getLstDomicilios() {
-		return lstDomicilios;
+	public String getNumerodocumento() {
+		return numerodocumento;
 	}
-	public void setLstDomicilios(List<DomicilioDTO> lstDomicilios) {
-		this.lstDomicilios = lstDomicilios;
-	}
-	public List<FichaDTO> getLstFichas() {
-		return lstFichas;
-	}
-	public void setLstFichas(List<FichaDTO> lstFichas) {
-		this.lstFichas = lstFichas;
+	public void setNumerodocumento(String numerodocumento) {
+		this.numerodocumento = numerodocumento;
 	}
 
 }
