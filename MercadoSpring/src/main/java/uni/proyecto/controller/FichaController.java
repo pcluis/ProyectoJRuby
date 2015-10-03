@@ -39,7 +39,7 @@ public class FichaController implements ServletContextAware {
 		
 		socioDAO.createSocio(socioDTO, servletcontext.getRealPath(""));
 		
-		return new ModelAndView();
+		return new ModelAndView("resultado.html");
 		
 	} 
 	
