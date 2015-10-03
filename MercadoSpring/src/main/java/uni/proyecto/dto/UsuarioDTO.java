@@ -1,11 +1,17 @@
 package uni.proyecto.dto;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class UsuarioDTO {
 
 	private Integer id;
+	
 	@NotEmpty(message = "El usuario no puede estar vacio")
+	@Pattern(regexp = "[A-Za-z\u00f1\u00d1]{1,20}", message = "No se aceptan caracteres especiales")
+	@Size(min = 2, max = 5, message = "El nombre de usuario debe estar entre 2 a 5")
 	private String usuario;
 	
 	@NotEmpty(message = "La clave no puede estar vacia")

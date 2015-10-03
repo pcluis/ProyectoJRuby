@@ -20,11 +20,9 @@ public class LoginController extends WebMvcConfigurerAdapter {
 	public ModelAndView login(@Valid UsuarioDTO usuario, BindingResult bindingresult){
 
 		if(bindingresult.hasErrors()){
-			System.out.println("Error");
 			return new ModelAndView("login.html", "usuarioDTO", usuario);
 		}
-		System.out.println("Exito");
-		return new ModelAndView("login.html", "usuarioDTO", usuario);
+		return new ModelAndView("registrarficha.html", "usuarioDTO", usuario);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "result")
