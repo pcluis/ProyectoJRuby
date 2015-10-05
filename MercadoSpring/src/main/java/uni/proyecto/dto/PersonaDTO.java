@@ -1,11 +1,5 @@
 package uni.proyecto.dto;
 
-import java.util.Set;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -16,7 +10,7 @@ public class PersonaDTO {
 	@NotNull(message = "Valio madreeeee")
 	private Integer id;
 	
-	@Size(min = 2, max = 100, message = "No cumple con el tamaño")
+	@Size(min = 2, max = 100, message = "No cumple con el tamaï¿½o")
 	@NotEmpty(message = "Este campo no puede estar vacio")
 	private String nombres, paterno, materno, condicion;
 	
@@ -49,21 +43,6 @@ public class PersonaDTO {
 	}
 	public void setCondicion(String condicion) {
 		this.condicion = condicion;
-	}
-	
-	public static void main(String[] args) {
-		
-		PersonaDTO persona = new PersonaDTO();
-		persona.setCondicion("");
-		
-		ValidatorFactory fabrica = Validation.buildDefaultValidatorFactory();
-		Validator validador = fabrica.getValidator();
-		
-		Set<ConstraintViolation<PersonaDTO>> violaciones = validador.validate(persona);
-		for(ConstraintViolation<PersonaDTO> c : violaciones){
-			System.out.println(c.getMessage());
-		}
-		
 	}
 	
 }

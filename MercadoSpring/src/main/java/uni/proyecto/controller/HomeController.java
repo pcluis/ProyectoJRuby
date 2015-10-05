@@ -37,7 +37,7 @@ public class HomeController {
 		UsuarioDTO usuario = new UsuarioDTO();
 		model.addAttribute("usuarioDTO", usuario);
 		
-		return "login.html";
+		return "login";
 	}
 	
 }
